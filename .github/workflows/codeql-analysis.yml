@@ -42,10 +42,11 @@ jobs:
       with:
         languages: ${{ matrix.language }}
         debug: true
-        config-file: advanced-security/config/disable-default-queries@true
-        packs: >
-          ghas-trials/${{ matrix.language }}-queries:codeql-suites/${{ matrix.language }}-security-all.qls,
-          ghas-trials/${{ matrix.language }}-queries:codeql-suites/${{ matrix.language }}-security-experimental.qls
+#        config-file: advanced-security/config/disable-default-queries@true
+#        packs: >
+#          ghas-trials/${{ matrix.language }}-queries:codeql-suites/${{ matrix.language }}-security-all.qls,
+#          ghas-trials/${{ matrix.language }}-queries:codeql-suites/${{ matrix.language }}-security-experimental.qls
+        queries: ghas-trials/poc-setups/suites/${{ matrix.language }}-security-all.qls@main
 
     - name: Autobuild
       uses: github/codeql-action/autobuild@v2
